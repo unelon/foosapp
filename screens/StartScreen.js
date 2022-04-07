@@ -15,11 +15,11 @@ export default function StartScreen({navigation}) {
                 alignItems: "center",
                 marginTop: 40
             }}>
-                <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184}} />
+                <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184, marginTop: 50}} />
             </View>
-            <View style={{position: "absolute", bottom: 0, width: "100%", paddingLeft: 20, paddingRight: 20}}>
-                <TouchableOpacity style={{backgroundColor: "red", marginBottom: 70}} onPress={() => {navigation.navigate("LoginScreen")}}>
-                    <Text style={{fontSize: 30, textAlign: "center"}}>Click me</Text>
+            <View style={{position: "absolute", bottom: 50, width: "100%", paddingLeft: 20, paddingRight: 20}}>
+                <TouchableOpacity style={[gs.button, gs.buttonPrimary]} onPress={() => {navigation.navigate("LoginScreen")}}>
+                    <Text style={[{fontSize: 20, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>Log in</Text>
                 </TouchableOpacity>
             </View>
         </View>

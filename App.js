@@ -7,7 +7,7 @@ import LoginScreen from './screens/LoginScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      <StartScreen />
+      <Navigator />
     </View>
   );
 }

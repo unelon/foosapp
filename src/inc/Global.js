@@ -2,10 +2,13 @@ import { StyleSheet } from "react-native";
 import react from "react";
 
 const theme = {
-    accent1: "blue",
+    accent1: "#00C695",
     accent2: "green",
 
-    bgcolor1: "#263238",
+    textColor1: "#fff",
+    textColor2: "blue",
+
+    bgcolor1: "#283D3B",
 
     textSmall: 12,
     textMedium: 16,
@@ -33,8 +36,23 @@ export const gs = StyleSheet.create({
         color: theme.accent1,
         fontSize: theme.textLarge
     },
+    textsm: {
+        fontSize: theme.textSmall
+    },
+    textmd: {
+        fontSize: theme.textMedium
+    },
+    textbold: {
+        fontWeight: theme.textBold
+    },
+    textxl: {
+        fontSize: theme.text
+    },
     bgcolor1: {
         backgroundColor: theme.bgcolor1,
+    },
+    textColor1: {
+        color: theme.textColor1,
     },
     ms: {
         marginTop: theme.marginSmall,
@@ -52,4 +70,18 @@ export const gs = StyleSheet.create({
         marginTop: theme.marginXl,
         marginBottom: theme.marginXl
     },
+    buttonPrimary: {
+        backgroundColor: theme.accent1,
+        color: theme.textColor1,
+    },
+    buttonSecondary: {
+        backgroundColor: theme.accent2,
+        color: theme.textColor1,
+        },
+    button: {
+        padding: 20,
+        width: "100%",
+        borderRadius: theme.borderRadius
+    },
+    
 });
