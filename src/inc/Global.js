@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import react from "react";
+import { borderBottomColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const theme = {
     accent1: "#00C695",
@@ -7,8 +8,10 @@ const theme = {
 
     textColor1: "#fff",
     textColor2: "blue",
+    textColor3: "#c4c4c4",
 
     bgcolor1: "#171F23",
+    bgcolor2: "#212D33",
 
     textSmall: 12,
     textMedium: 16,
@@ -51,8 +54,20 @@ export const gs = StyleSheet.create({
     bgcolor1: {
         backgroundColor: theme.bgcolor1,
     },
+    bgcolor2: {
+        backgroundColor: theme.bgcolor2,
+    },
+    borderRadius: {
+        borderRadius: theme.borderRadius,
+    },
     textColor1: {
         color: theme.textColor1,
+    },
+    textColor2: {
+        color: theme.textColor2
+    },
+    textColor3: {
+        color: theme.textColor3
     },
     ms: {
         marginTop: theme.marginSmall,
@@ -83,5 +98,10 @@ export const gs = StyleSheet.create({
         width: "100%",
         borderRadius: theme.borderRadius
     },
+    textInput: {
+        height: 50,
+        borderBottomWidth: 1,
+        borderBottomColor: "#506B7A"
+    }
     
 });

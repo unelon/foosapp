@@ -11,18 +11,23 @@ export default function StartScreen({navigation}) {
     
     return (
         <View style={[gs.bgcolor1, {flex: 1}]}>     
-            <View style={{
-                alignItems: "center",
-                marginTop: 40
-            }}>
-                <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184, marginTop: 50}} />
+            <View style={{alignItems: "center",marginTop: 40}}>
+                <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184, marginTop: 100}} />
             </View>
             <View style={{position: "absolute", bottom: 50, width: "100%", paddingLeft: 20, paddingRight: 20}}>
-                <TouchableOpacity style={[gs.button, gs.buttonPrimary]} onPress={() => {navigation.navigate("LoginScreen")}}>
-                    <Text style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>Log in</Text>
+                <TouchableOpacity 
+                    style={[gs.button, gs.buttonPrimary]} 
+                    onPress={() => {navigation.navigate("LoginScreen")}}>
+                    <Text 
+                    style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>
+                    Log in</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[gs.button, gs.ms, {backgroundColor: "#4267B2"}]} onPress={() => {navigation.navigate("LoginScreen")}}>
-                    <Text style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>Sign in with facebook</Text>
+                <TouchableOpacity 
+                    style={[gs.button, gs.ms, {backgroundColor: "#4267B2"}]} 
+                    onPress={() => {navigation.navigate("LoginScreen")}}>
+                    <Text style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>
+                    Sign in with facebook
+                    </Text>
                 </TouchableOpacity>
                 <Text style={[{color: "#fff", textAlign: "center"}, gs.mm]}>Not a member yet?</Text>
             </View>
