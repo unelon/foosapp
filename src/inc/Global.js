@@ -8,7 +8,7 @@ const theme = {
     textColor1: "#fff",
     textColor2: "blue",
 
-    bgcolor1: "#283D3B",
+    bgcolor1: "#171F23",
 
     textSmall: 12,
     textMedium: 16,
