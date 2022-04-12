@@ -6,7 +6,7 @@ export const HomeScreen = () => {
     const { user: { name } } = useUser()  
     return (
         <View style={{marginTop: 50, flex: 1}}>
-            <Text style={{fontSize: 40}}>Velommen {name}</Text>
+            <Text style={{fontSize: 40}}>velkommen {name}</Text>
             <View style={{bottom: 50, position: 'absolute'}} >
             <Logout />
             </View>

@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { login } from "../../vendor/facebook";
 import { useEffect } from "react";
 import {
+  useAddEmailUserLazyQuery,
   useAddFacebookUserLazyQuery,
   useAuthLazyQuery,
   useAuthQuery,
@@ -27,6 +28,7 @@ const userAtom = atom<User | undefined>({
 export const useUser = () => {
   const [user, _setUser] = useAtom(userAtom);
   const [authQuery, { loading: authLoading }] = useAuthLazyQuery();
+  const [addEmail, { loading: addEmailLoading }] = useAddEmailUserLazyQuery();
   const [addFacebookQuery, { loading: addFacebookLoading }] =
     useAddFacebookUserLazyQuery();
 
@@ -44,7 +46,7 @@ export const useUser = () => {
 
   useEffect(() => {
     if (user.state !== "initilizing") return;
-    loadUser((persitedUser) => {
+    loadUserCB((persitedUser) => {
       if (persitedUser) {
         _setUser({
           ...persitedUser,
@@ -61,7 +63,44 @@ export const useUser = () => {
 
   return {
     user,
-    loading: addFacebookLoading || authLoading,
+    loading: addFacebookLoading || authLoading || addEmailLoading,
+    loginWithEmailPassword: async (email: string, password: string) => {
+      const authQueryResult = await authQuery({
+        variables: {
+          id: `${email}:${password}`,
+          provider: "internal",
+        },
+      });
+      if (authQueryResult.data.auth) {
+        setUser({
+          provider: "facebook",
+          state: "loggedIn",
+          name: authQueryResult.data.auth.user.name,
+          token: authQueryResult.data.auth.token,
+        });
+      }
+    },
+    addEmailPasswordUser: async (
+      email: string,
+      name: string,
+      password: string
+    ) => {
+      const addReponse = await addEmail({
+        variables: {
+          email,
+          name,
+          password,
+        },
+      });
+      if (addReponse.data.addEmailUser) {
+        setUser({
+          provider: "internal",
+          state: "loggedIn",
+          name: addReponse.data.addEmailUser.user.name,
+          token: addReponse.data.addEmailUser.token,
+        });
+      }
+    },
     logout: async () => {
       await AsyncStorage.removeItem(STORAGE_KEY);
       _setUser({
@@ -115,17 +154,21 @@ export const useUser = () => {
   };
 };
 
-async function loadUser(userLoaded: (user: persitedUser | null) => void) {
+async function loadUserCB(userLoaded: (user: persitedUser | null) => void) {
+  const user = await loadUser();
+  userLoaded(user);
+}
+
+export async function loadUser(): Promise<persitedUser | null> {
   try {
     const value = await AsyncStorage.getItem(STORAGE_KEY);
     if (value !== null) {
       const user: persitedUser = JSON.parse(value);
-      userLoaded(user);
+      return user;
     } else {
-      userLoaded(null);
+      return null;
     }
   } catch (e) {
     console.log(e);
-    // error reading value
   }
 }

@@ -23,9 +23,17 @@ export type Auth = {
 
 export type Query = {
   __typename?: 'Query';
+  addEmailUser?: Maybe<Auth>;
   addFacebookUser?: Maybe<Auth>;
   auth?: Maybe<Auth>;
   hi?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryAddEmailUserArgs = {
+  email: Scalars['String'];
+  name: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
@@ -52,6 +60,15 @@ export type AuthQueryVariables = Exact<{
 
 
 export type AuthQuery = { __typename?: 'Query', auth?: { __typename?: 'Auth', token: string, user: { __typename?: 'User', name?: string | null } } | null };
+
+export type AddEmailUserQueryVariables = Exact<{
+  email: Scalars['String'];
+  name: Scalars['String'];
+  password: Scalars['String'];
+}>;
+
+
+export type AddEmailUserQuery = { __typename?: 'Query', addEmailUser?: { __typename?: 'Auth', token: string, user: { __typename?: 'User', name?: string | null } } | null };
 
 export type AddFacebookUserQueryVariables = Exact<{
   id: Scalars['String'];
@@ -101,6 +118,46 @@ export function useAuthLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AuthQ
 export type AuthQueryHookResult = ReturnType<typeof useAuthQuery>;
 export type AuthLazyQueryHookResult = ReturnType<typeof useAuthLazyQuery>;
 export type AuthQueryResult = Apollo.QueryResult<AuthQuery, AuthQueryVariables>;
+export const AddEmailUserDocument = gql`
+    query addEmailUser($email: String!, $name: String!, $password: String!) {
+  addEmailUser(email: $email, name: $name, password: $password) {
+    token
+    user {
+      name
+    }
+  }
+}
+    `;
+
+/**
+ * __useAddEmailUserQuery__
+ *
+ * To run a query within a React component, call `useAddEmailUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAddEmailUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAddEmailUserQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *      name: // value for 'name'
+ *      password: // value for 'password'
+ *   },
+ * });
+ */
+export function useAddEmailUserQuery(baseOptions: Apollo.QueryHookOptions<AddEmailUserQuery, AddEmailUserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AddEmailUserQuery, AddEmailUserQueryVariables>(AddEmailUserDocument, options);
+      }
+export function useAddEmailUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AddEmailUserQuery, AddEmailUserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AddEmailUserQuery, AddEmailUserQueryVariables>(AddEmailUserDocument, options);
+        }
+export type AddEmailUserQueryHookResult = ReturnType<typeof useAddEmailUserQuery>;
+export type AddEmailUserLazyQueryHookResult = ReturnType<typeof useAddEmailUserLazyQuery>;
+export type AddEmailUserQueryResult = Apollo.QueryResult<AddEmailUserQuery, AddEmailUserQueryVariables>;
 export const AddFacebookUserDocument = gql`
     query addFacebookUser($id: String!, $name: String!) {
   addFacebookUser(id: $id, name: $name) {
