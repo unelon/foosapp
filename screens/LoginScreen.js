@@ -1,5 +1,5 @@
 import react from "react";
-import LoginForm from "../src/LoginForm";
+import LoginForm from "../src/Components/LoginForm";
 import { View, Text, StyleSheet } from "react-native";
 import { gs } from "../src/inc/Global";
 import { TextInput } from "react-native-gesture-handler";

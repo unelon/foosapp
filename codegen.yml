@@ -1,0 +1,12 @@
+overwrite: true
+schema: "http://129.151.198.192:4000/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/hooks/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

@@ -1,0 +1,26 @@
+query auth($id: String!, $provider: String!) {
+  auth(id: $id, provider: $provider) {
+    token
+    user {
+      name
+    }
+  }
+}
+
+query addEmailUser($email: String!, $name: String!, $password: String!) {
+  addEmailUser(email: $email, name: $name, password: $password) {
+    token
+    user {
+      name
+    }
+  }
+}
+
+query addFacebookUser($id: String!, $name: String!) {
+  addFacebookUser(id: $id, name: $name) {
+    token
+    user {
+      name
+    }
+  }
+}
