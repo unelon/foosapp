@@ -67,7 +67,7 @@ export const useUser = () => {
     loginWithEmailPassword: async (email: string, password: string) => {
       const authQueryResult = await authQuery({
         variables: {
-          id: `${email}:${password}`,
+          id: `${email.toLowerCase()}:${password.toLowerCase()}`,
           provider: "internal",
         },
       });
@@ -87,9 +87,9 @@ export const useUser = () => {
     ) => {
       const addReponse = await addEmail({
         variables: {
-          email,
+          email: email.toLowerCase(),
           name,
-          password,
+          password: password.toLocaleLowerCase(),
         },
       });
       if (addReponse.data.addEmailUser) {

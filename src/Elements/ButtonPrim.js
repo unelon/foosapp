@@ -10,7 +10,7 @@ const screenName = props.navigateTo;
 
     return (
         <TouchableOpacity
-            onPress={() => {navigator.navigate(screenName)}}
+            onPress={() => { props.onPress ? props.onPress() : navigator.navigate(screenName)}}
             style={[gs.button, gs.buttonPrimary]}>
             <Text 
             style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>
