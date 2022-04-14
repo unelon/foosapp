@@ -4,6 +4,7 @@ import { TouchableOpacity, TouchableWithoutFeedback } from "react-native-gesture
 import { SafeAreaView } from "react-native-web";
 import { useUser } from "../src/hooks/useUser";
 import { gs } from "../src/inc/Global";
+import { ButtonPrim } from "../src/Elements/ButtonPrim";
 
 export default function StartScreen({navigation}) {    
     const {
@@ -15,13 +16,9 @@ export default function StartScreen({navigation}) {
                 <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184, marginTop: 100}} />
             </View>
             <View style={{position: "absolute", bottom: 50, width: "100%", paddingLeft: 20, paddingRight: 20}}>
-                <TouchableOpacity 
-                    style={[gs.button, gs.buttonPrimary]} 
-                    onPress={() => {navigation.navigate("LoginScreen")}}>
-                    <Text 
-                    style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>
-                    Log in</Text>
-                </TouchableOpacity>
+
+                <ButtonPrim title="Log in" navigateTo="LoginScreen"/>    
+            
                 <TouchableOpacity style={[gs.button, gs.ms, {backgroundColor: "#4267B2"}]} onPress={() => {loginWidthFacebook()}}>
                     <Text style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>Sign in with facebook</Text>
                 </TouchableOpacity>
