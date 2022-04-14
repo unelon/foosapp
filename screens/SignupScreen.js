@@ -1,12 +1,13 @@
 import react from "react";
-import LoginForm from "../src/Components/LoginForm";
+import SignupForm from "../src/Components/SignupForm";
 import { View, Text, StyleSheet } from "react-native";
 import { gs } from "../src/inc/Global";
+import { TextInput } from "react-native-gesture-handler";
 
-export default function LoginScreen(){
+export default function SignupScreen(){
 
     return (
-        <LoginForm />
+        <SignupForm />
     );
 }
 

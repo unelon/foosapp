@@ -2,7 +2,7 @@ import react from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { gs } from "../inc/Global";
 
-export default function LoginForm(){
+export default function SignupForm(){
 
     return (
             

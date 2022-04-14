@@ -11,7 +11,7 @@ export default function StartScreen({navigation}) {
     } = useUser()
     return (
         <View style={[gs.bgcolor1, {flex: 1}]}>     
-            <View style={{alignItems: "center",marginTop: 40}}>
+            <View style={{alignItems: "center", marginTop: 40}}>
                 <Image source={require("../src/images/logo.png")} style={{width: 270, height: 184, marginTop: 100}} />
             </View>
             <View style={{position: "absolute", bottom: 50, width: "100%", paddingLeft: 20, paddingRight: 20}}>
@@ -25,7 +25,13 @@ export default function StartScreen({navigation}) {
                 <TouchableOpacity style={[gs.button, gs.ms, {backgroundColor: "#4267B2"}]} onPress={() => {loginWidthFacebook()}}>
                     <Text style={[{fontSize: 18, fontWeight: "bold", textAlign: "center"}, gs.textColor1]}>Sign in with facebook</Text>
                 </TouchableOpacity>
-                <Text style={[{color: "#fff", textAlign: "center"}, gs.mm]}>Not a member yet?</Text>
+                <Text style={[{color: "#fff", textAlign: "center"}, gs.mmTop]}>Not a member yet?</Text>
+                <TouchableOpacity 
+                style={{display: "flex", alignItems: "center"}}
+                onPress={() => {navigation.navigate("SignupScreen")}}
+                >
+                    <Text style={[gs.textColor2, gs.pm]}>Sign up now</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

@@ -3,11 +3,13 @@ import react from "react";
 import { borderBottomColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const theme = {
+
+    /* Colors and Typography */
     accent1: "#00C695",
     accent2: "green",
 
     textColor1: "#fff",
-    textColor2: "blue",
+    textColor2: "#00C695",
     textColor3: "#c4c4c4",
 
     bgcolor1: "#171F23",
@@ -21,10 +23,16 @@ const theme = {
     borderColor: "purple",
     borderRadius: 6,
 
+    /* Layoyt */
     marginSmall: 10,
     marginMedium: 20,
     marginLarge: 30,
-    marginXl: 40
+    marginXl: 40,
+
+    paddingSmall: 10, 
+    paddingMedium: 20,
+    paddingLarge: 30,
+    paddingXL: 40
 } 
 
 export const gs = StyleSheet.create({
@@ -85,6 +93,66 @@ export const gs = StyleSheet.create({
         marginTop: theme.marginXl,
         marginBottom: theme.marginXl
     },
+    msTop: {
+        marginTop: theme.marginSmall,
+    },
+    mmTop: {
+        marginTop: theme.marginMedium,
+    },
+    mlTop: {
+        marginTop: theme.marginLarge,
+    },
+    mxTop: {
+        marginTop: theme.marginXl,
+    },
+    msBot: {
+        marginBottom: theme.marginSmall,
+    },
+    mmBot: {
+        marginBottom: theme.marginMedium,
+    },
+    mlBot: {
+        marginBottom: theme.marginLarge,
+    },
+    mxBot: {
+        marginBottom: theme.marginXl,
+    },
+    ps: {
+        padding: theme.paddingSmall
+    }, 
+    pm: {
+        padding: theme.paddingMedium
+    }, 
+    pl: {
+        padding: theme.paddingLarge
+    }, 
+    px: {
+        padding: theme.paddingXL
+    },
+    psTop: {
+        paddingTop: theme.paddingSmall
+    }, 
+    pmTop: {
+        paddingTop: theme.paddingMedium
+    }, 
+    plTop: {
+        paddingTop: theme.paddingLarge
+    }, 
+    pxTop: {
+        paddingTop: theme.paddingXL
+    },
+    psBot: {
+        paddingBottom: theme.paddingSmall
+    }, 
+    pmBot: {
+        paddingBottom: theme.paddingMedium
+    }, 
+    plBot: {
+        paddingBottom: theme.paddingLarge
+    }, 
+    pxBot: {
+        paddingBottom: theme.paddingXL
+    },
     buttonPrimary: {
         backgroundColor: theme.accent1,
         color: theme.textColor1,
@@ -94,7 +162,7 @@ export const gs = StyleSheet.create({
         color: theme.textColor1,
         },
     button: {
-        padding: 20,
+        padding: 15,
         width: "100%",
         borderRadius: theme.borderRadius
     },
