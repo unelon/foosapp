@@ -1,17 +1,27 @@
 import react from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { gs } from "../inc/Global";
+import { ButtonPrim } from "../Elements/ButtonPrim";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function SignupForm(){
 
     return (
-            
         <View style={[gs.wrapper, gs.bgcolor2, style.loginContainer]}>
-            <View style={gs.container}>
+            <ScrollView>
+            <View style={[gs.container, {marginTop: 100}]}>
+                <Text style={[gs.textColor3, gs.textsm]}>First Name</Text>
+                <TextInput style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
+                <Text style={[gs.textColor3, gs.textsm]}>Last Name</Text>
+                <TextInput style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
                 <Text style={[gs.textColor3, gs.textsm]}>Your Email</Text>
-                <TextInput style={[gs.textInput, gs.textColor1, gs.mm, gs.borderRadius]}></TextInput>
-                <TextInput style={[gs.textInput, gs.textColor1, gs.borderRadius]}></TextInput>
+                <TextInput style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
+                <Text style={[gs.textColor3, gs.textsm]}>Password</Text>
+                <TextInput secureTextEntry={true} style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
+                <ButtonPrim title="Sign up" />
             </View>
+            </ScrollView>
+
         </View>
     );
     

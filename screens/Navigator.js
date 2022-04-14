@@ -11,8 +11,53 @@ import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 import { useUser } from '../src/hooks/useUser';
 import { HomeScreen } from './HomeScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+// Tab Navigator
+
+const home = "Home";
+const leagues = "Leagues"
+const myProfile = "My Profile"
+
+function TabNavigation(){
+  return (
+    <Tab.Navigator
+    initialRouteName={HomeScreen}
+    screenOptions={({ route }) => ({
+      tabBarActiveTintColor: '#29B869',
+      tabBarInactiveTintColor: 'grey',
+      headerShown: false,
+      tabBarLabelStyle: { paddingBottom: 10, fontSize: 15 },
+      tabBarStyle: { paddingBottom: 20, paddingTop: 2, height: 80},
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+        let rn = route.name;
+
+        if (rn === home) {
+          iconName = focused ? 'home' : 'home-outline';
+
+        } else if (rn === leagues) {
+          iconName = focused ? 'search' : 'search-outline';
+
+        } else if (rn === myProfile) {
+          iconName = focused ? 'pizza' : 'pizza-outline';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+    })}>
+
+    <Tab.Screen name={home} component={HomeScreen} />
+    <Tab.Screen name={leagues} component={HomeScreen} />
+    <Tab.Screen name={myProfile} component={HomeScreen} />
+  
+  </Tab.Navigator>
+  )
+}
 
 
 // Navigator
@@ -34,7 +79,11 @@ function StartContainer() {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Start Screen">
+      <Stack.Navigator initialRouteName="StartScreen">
+      <Stack.Screen options={{
+        gestureEnabled: false,
+        headerShown: false, 
+        }} tabBarStyle={{}} name="HomeScreen" component={TabNavigation} />
         <Stack.Screen name="StartScreen" component={StartScreen} options={{
             headerShown: false, 
             headerStyle: {backgroundColor: "#fff"}, 
@@ -59,7 +108,7 @@ function StartContainer() {
             headerBackImage: ()=>(<Image source={require("../src/images/close-white.png")} style={{width:14, height: 14, marginLeft: 20}} />),
             headerBackTitle: " ",
             cardStyle: {backgroundColor: '#fff'}}} 
-            />            
+            />      
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -12,9 +12,9 @@ export default function LoginForm(){
             <View style={[gs.container, {marginTop: 100}]}>
                 <Text style={[gs.textColor3, gs.textsm]}>Your Email</Text>
                 <TextInput style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
-                <Text style={[gs.textColor3, gs.mlTop, gs.textsm]}>Password</Text>
+                <Text style={[gs.textColor3, gs.textsm]}>Password</Text>
                 <TextInput secureTextEntry={true} style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}></TextInput>
-                <ButtonPrim title="Log in" />
+                <ButtonPrim title="Log in" navigateTo="HomeScreen" />
             </View>
             </ScrollView>
 
