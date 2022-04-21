@@ -25,14 +25,16 @@ const myProfile = "My Profile";
 function TabNavigation() {
   return (
     <Tab.Navigator
-      initialRouteName={HomeScreen}
-      screenOptions={({ route }) => ({
-        tabBarActiveTintColor: "#29B869",
-        tabBarInactiveTintColor: "grey",
-        headerShown: false,
-        tabBarLabelStyle: { paddingBottom: 10, fontSize: 15 },
-        tabBarStyle: { paddingBottom: 20, paddingTop: 2, height: 80 },
-        tabBarIcon: ({ focused, color, size }) => {
+    initialRouteName={HomeScreen}
+    screenOptions={({ route }) => ({
+      tabBarActiveTintColor: "#00C695",
+      tabBarActiveBackgroundColor: "#171F23",
+      tabBarInactiveBackgroundColor: "#171F23",
+      tabBarInactiveTintColor: 'grey',
+      headerShown: false,
+      tabBarLabelStyle: { paddingBottom: 30, paddingTop: 0, fontSize: 15 },
+      tabBarStyle: { paddingBottom: 0, height: 80, borderTopWidth: 4, borderTopColor: '#171F23'},
+      tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           let rn = route.name;
 
