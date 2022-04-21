@@ -18,8 +18,8 @@ const Tab = createBottomTabNavigator();
 
 // Tab Navigator
 
-const home = "Home";
-const leagues = "Leagues";
+const home = "Activities";
+const leagues = "Games";
 const myProfile = "My Profile";
 
 function TabNavigation() {
@@ -39,11 +39,11 @@ function TabNavigation() {
           let rn = route.name;
 
           if (rn === home) {
-            iconName = focused ? "home" : "home-outline";
+            iconName = focused ? "flash" : "flash-outline";
           } else if (rn === leagues) {
-            iconName = focused ? "search" : "search-outline";
+            iconName = focused ? "football" : "football-outline";
           } else if (rn === myProfile) {
-            iconName = focused ? "pizza" : "pizza-outline";
+            iconName = focused ? "person" : "person-outline";
           }
 
           // You can return any component that you like here!
