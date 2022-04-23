@@ -11,6 +11,10 @@ import LoginScreen from "./LoginScreen";
 import SignupScreen from "./SignupScreen";
 import { useUser } from "../src/hooks/useUser";
 import { HomeScreen } from "./HomeScreen";
+import { GameScreen } from "./GameScreen";
+import { ProfileScreen } from "./ProfileScreen";
+
+// Tab navigator
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createStackNavigator();
@@ -52,8 +56,8 @@ function TabNavigation() {
       })}
     >
       <Tab.Screen name={home} component={HomeScreen} />
-      <Tab.Screen name={leagues} component={HomeScreen} />
-      <Tab.Screen name={myProfile} component={HomeScreen} />
+      <Tab.Screen name={leagues} component={GameScreen} />
+      <Tab.Screen name={myProfile} component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
@@ -91,8 +95,6 @@ function StartContainer() {
           component={StartScreen}
           options={{
             headerShown: false,
-            headerStyle: { backgroundColor: "#fff" },
-            cardStyle: { backgroundColor: "#fff" },
           }}
         />
         <Stack.Screen

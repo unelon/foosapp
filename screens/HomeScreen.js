@@ -1,29 +1,29 @@
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, SafeAreaView, Image } from "react-native";
 import { useUser } from "../src/hooks/useUser";
+import { ButtonPrim } from "../src/Elements/ButtonPrim";
+import { gs } from "../src/inc/Global";
 
 export const HomeScreen = () => {
   const {
     user: { name },
   } = useUser();
   return (
-    <View style={{ marginTop: 50, flex: 1 }}>
-      <Text style={{ fontSize: 40 }}>velkommen {name}</Text>
-      <View style={{ bottom: 50, position: "absolute" }}>
-        <Logout />
+    <SafeAreaView style={[{flex: 1}, gs.bgcolor2]}>
+      <View style={[{flex: 1}, gs.bgcolor2]}>
+        <View style={gs.container}>
+          <View style={[gs.containerColor, gs.borderRadius, gs.ps]}>
+            <Image source={{uri: "https://randomuser.me/api/portraits/women/67.jpg"}} style={{height: 50, width: 50, borderRadius: 100}}/>
+            <View>
+              <Text style={gs.textColor1}>Sanne Petersen</Text>
+              <View>
+                <Text style={gs.textColor1}>Recent results:</Text>
+              </View>
+            </View>
+          </View>    
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
-function Logout() {
-  const { logout } = useUser();
-  return (
-    <View style={{ backgroundColor: "red" }}>
-      <TouchableOpacity onPress={logout}>
-        <Text style={{ padding: 10, fontSize: 30, color: "white" }}>
-          logout
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+
