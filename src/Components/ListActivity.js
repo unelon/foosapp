@@ -84,9 +84,6 @@ export const ActivityList = () => {
             <Text style={gs.textColor2}>
                 {games}
             </Text>
-            <Text>
-                {achievement}
-            </Text>
         </View>
     );
 
