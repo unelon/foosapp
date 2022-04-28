@@ -1,12 +1,12 @@
 import react from "react";
-import LoginForm from "../src/Components/LoginForm";
+import FormLogin from "../src/Components/FormLogin";
 import { View, Text, StyleSheet } from "react-native";
 import { gs } from "../src/inc/Global";
 
 export default function LoginScreen(){
 
     return (
-        <LoginForm />
+        <FormLogin />
     );
 }
 
