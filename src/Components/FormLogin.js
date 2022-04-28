@@ -28,7 +28,7 @@ export default function LoginForm() {
           <TextInput
             onChangeText={(value) => setPassword(value)}
             value={password}
-            secureTextEntry={true}
+             secureTextEntry={true}
             style={[gs.textInput, gs.textColor1, gs.mmBot, gs.borderRadius]}
           ></TextInput>
           <ButtonPrim onPress={login} title="Log in" navigateTo="HomeScreen" />

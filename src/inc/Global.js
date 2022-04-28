@@ -14,12 +14,14 @@ const theme = {
 
     bgcolor1: "#171F23",
     bgcolor2: "#212D33",
+    bgcolor3: "#416272",
 
     containerColor: "#344650",
 
     textSmall: 12,
     textMedium: 16,
     textLarge: 24,
+    textExtraLarge: 32,
     textBold: "bold",
 
     borderColor: "purple",
@@ -46,7 +48,6 @@ export const gs = StyleSheet.create({
         margin: 10,
     },
     title: {
-        color: theme.accent1,
         fontSize: theme.textLarge
     },
     textsm: {
@@ -55,17 +56,20 @@ export const gs = StyleSheet.create({
     textmd: {
         fontSize: theme.textMedium
     },
+    textxl: {
+        fontSize: theme.textExtraLarge
+    },
     textbold: {
         fontWeight: theme.textBold
-    },
-    textxl: {
-        fontSize: theme.text
     },
     bgcolor1: {
         backgroundColor: theme.bgcolor1,
     },
     bgcolor2: {
         backgroundColor: theme.bgcolor2,
+    },
+    bgcolor3: {
+        backgroundColor: theme.bgcolor3
     },
     containerColor: {
      backgroundColor: theme.containerColor,   
